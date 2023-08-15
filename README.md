@@ -1,6 +1,6 @@
-# terraform-cloudflare-r2-api-token
+# Terraform Cloudflare R2 API Token
 
-Terraform module to create a Cloudflare API token that have bucket scope tokens.
+Terraform module to create a Cloudflare API token that have bucket scope permissions.
 
 Example:
 ```hcl
