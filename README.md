@@ -56,5 +56,7 @@ module "r2-api-token" {
 | Name | Description |
 |------|-------------|
 | <a name="output_id"></a> [id](#output\_id) | API Token ID.<br>Used as the Acccess Key ID |
+| <a name="output_name"></a> [name](#output\_name) | Name of the API Token |
 | <a name="output_secret"></a> [secret](#output\_secret) | Secret Access Key |
+| <a name="output_value"></a> [value](#output\_value) | API Token Value |
 <!-- END_TF_DOCS -->

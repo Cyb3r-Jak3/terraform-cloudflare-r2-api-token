@@ -3,6 +3,12 @@ output "id" {
   description = "API Token ID.\nUsed as the Acccess Key ID"
 }
 
+output "value" {
+  value       = cloudflare_api_token.token.value
+  sensitive   = true
+  description = "API Token Value"
+}
+
 output "secret" {
   value       = sha256(cloudflare_api_token.token.value)
   sensitive   = true
