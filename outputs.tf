@@ -1,6 +1,6 @@
 output "id" {
   value       = cloudflare_api_token.token.id
-  description = "API Token ID.\nUsed as the Acccess Key ID"
+  description = "API Token ID.\nUsed as the Access Key ID"
 }
 
 output "value" {

@@ -1,0 +1,36 @@
+name: Terraform Testing
+
+on: 
+  pull_request:
+    branches: [ main ]
+
+jobs: 
+  Terraform:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./.github/testing
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve -input=false
+        env:
+            CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+            TF_VAR_account_id: ${{ secrets.TF_VAR_ACCOUNT_ID }}
+
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve -input=false
+        env:
+            CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+            TF_VAR_account_id: ${{ secrets.TF_VAR_ACCOUNT_ID }}
+
+
