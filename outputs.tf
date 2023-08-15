@@ -1,8 +1,8 @@
-output "tf_test_r2_token_id" {
+output "id" {
   value       = cloudflare_api_token.token.id
-  description = "Access Key ID"
+  description = "API Token ID. Used as the Acccess Key ID"
 }
-output "tf_test_r2_token_value" {
+output "secret" {
   value       = sha256(cloudflare_api_token.token.value)
   sensitive   = true
   description = "Secret Access Key"

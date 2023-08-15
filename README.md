@@ -49,12 +49,12 @@ module "r2-api-token" {
 | <a name="input_condition_not_ip_in"></a> [condition\_not\_ip\_in](#input\_condition\_not\_ip\_in) | List of IP addresses or CIDR notation where the token should not be used from. | `list(string)` | `[]` | no |
 | <a name="input_expires_on"></a> [expires\_on](#input\_expires\_on) | The expiration time on or after which the token MUST NOT be accepted for processing. | `string` | `""` | no |
 | <a name="input_not_before"></a> [not\_before](#input\_not\_before) | The time before which the token MUST NOT be accepted for processing. If not specified, the token will be valid immediately. | `string` | `""` | no |
-| <a name="input_token_name"></a> [token\_name](#input\_token\_name) | Name of the API token | `string` | n/a | yes |
+| <a name="input_token_name"></a> [token\_name](#input\_token\_name) | Name of the API token. If not specified, a random name will be generated. | `string` | `""` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_tf_test_r2_token_id"></a> [tf\_test\_r2\_token\_id](#output\_tf\_test\_r2\_token\_id) | Access Key ID |
-| <a name="output_tf_test_r2_token_value"></a> [tf\_test\_r2\_token\_value](#output\_tf\_test\_r2\_token\_value) | Secret Access Key |
+| <a name="output_id"></a> [id](#output\_id) | API Token ID. Used as the Acccess Key ID |
+| <a name="output_secret"></a> [secret](#output\_secret) | Secret Access Key |
 <!-- END_TF_DOCS -->

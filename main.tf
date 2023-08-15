@@ -14,7 +14,7 @@ module "api-permissions" {
 
 
 resource "cloudflare_api_token" "token" {
-  name = var.token_name
+  name = local.token_name
   policy {
     permission_groups = [
       var.bucket_read ? module.api-permissions.r2["Workers R2 Storage Bucket/ Item Read"] : null,

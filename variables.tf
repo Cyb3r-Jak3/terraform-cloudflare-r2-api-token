@@ -4,8 +4,9 @@ variable "account_id" {
 }
 
 variable "token_name" {
-  description = "Name of the API token"
+  description = "Name of the API token. If not specified, a random name will be generated."
   type        = string
+  default = ""
 }
 
 variable "buckets" {
