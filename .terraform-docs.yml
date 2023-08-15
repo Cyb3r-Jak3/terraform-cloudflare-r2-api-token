@@ -1,0 +1,32 @@
+formatter: markdown table
+
+header-from: main.tf
+
+
+output:
+  file: "README.md"
+  mode: replace
+  template: |-
+    # terraform-cloudflare-r2-api-token
+
+    Terraform module to create a Cloudflare API token that have bucket scope tokens.
+    
+    Example:
+    ```hcl
+    module "r2-api-token" {
+      source  = "Cyb3r-Jak3/r2-api-token/cloudflare"
+      version = "<version>"
+      account_id = "<account>"
+      buckets = ["bucket-1", "bucket-2"]
+      write = false
+    }
+    ```
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+    <!-- END_TF_DOCS -->
+
+
+settings:
+  lockfile: false
+  read-comments: true
+  sensitive: true
