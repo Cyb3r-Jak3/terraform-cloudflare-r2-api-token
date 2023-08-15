@@ -21,8 +21,8 @@ variable "account_id" {
 resource "random_string" "bucket_name" {
   length  = 32
   special = false
-  numeric = false
-
+  numeric = true
+  upper = false
 }
 
 resource "cloudflare_r2_bucket" "test" {
@@ -33,6 +33,7 @@ resource "cloudflare_r2_bucket" "test" {
 module "r2-api-token" {
   source       = "../.."
   account_id   = var.account_id
-  buckets      = [cloudflare_r2_bucket.test_token_bucket.name]
+  buckets      = [cloudflare_r2_bucket.test.name]
   bucket_write = false
+  expires_on = timeadd(timestamp(), "10m")
 }

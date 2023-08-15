@@ -33,7 +33,7 @@ variable "not_before" {
 }
 
 variable "expires_on" {
-  description = "The expiration time on or after which the token MUST NOT be accepted for processing."
+  description = "The expiration time on or after which the token MUST NOT be accepted for processing. If not specified, the token will not expire."
   type        = string
   default     = ""
 }
@@ -44,7 +44,7 @@ variable "condition_ip_in" {
   default     = []
 }
 
-variable "condition_not_ip_in" {
+variable "condition_ip_not_in" {
   description = "List of IP addresses or CIDR notation where the token should not be used from."
   type        = list(string)
   default     = []
