@@ -28,15 +28,14 @@ module "r2-api-token" {
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_api-permissions"></a> [api-permissions](#module\_api-permissions) | Cyb3r-Jak3/api-permissions/cloudflare | 1.1.0 |
+No modules.
 
 ## Resources
 
 | Name | Type |
 |------|------|
 | [cloudflare_api_token.token](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/api_token) | resource |
+| [cloudflare_api_token_permission_groups.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/api_token_permission_groups) | data source |
 
 ## Inputs
 

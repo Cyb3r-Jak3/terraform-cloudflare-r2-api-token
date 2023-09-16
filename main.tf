@@ -8,18 +8,14 @@ terraform {
   }
 }
 
-module "api-permissions" {
-  source  = "Cyb3r-Jak3/api-permissions/cloudflare"
-  version = "1.1.0"
-}
-
+data "cloudflare_api_token_permission_groups" "this" {}
 
 resource "cloudflare_api_token" "token" {
   name = var.token_name != "" ? var.token_name : "R2-${join(",", var.buckets)}-${var.bucket_read ? "Read" : ""}-${var.bucket_write ? "Write" : ""}"
   policy {
     permission_groups = compact([
-      var.bucket_read ? module.api-permissions.r2["Workers R2 Storage Bucket Item Read"] : null,
-      var.bucket_write ? module.api-permissions.r2["Workers R2 Storage Bucket Item Write"] : null,
+      var.bucket_read ? data.cloudflare_api_token_permission_groups.this.r2["Workers R2 Storage Bucket Item Read"] : null,
+      var.bucket_write ? data.cloudflare_api_token_permission_groups.this.r2["Workers R2 Storage Bucket Item Write"] : null,
     ])
     resources = { for bucket in var.buckets : "com.cloudflare.edge.r2.bucket.${var.account_id}_default_${bucket}" => "*" }
   }

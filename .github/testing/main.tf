@@ -18,22 +18,34 @@ variable "account_id" {
   type = string
 }
 
-resource "random_string" "bucket_name" {
+resource "random_string" "bucket1_name" {
   length  = 32
   special = false
   numeric = true
   upper = false
 }
 
-resource "cloudflare_r2_bucket" "test" {
+resource "random_string" "bucket2_name" {
+  length  = 32
+  special = false
+  numeric = true
+  upper = false
+}
+
+resource "cloudflare_r2_bucket" "test1" {
   account_id = var.account_id
-  name       = random_string.bucket_name.result
+  name       = random_string.bucket1_name.result
+}
+
+resource "cloudflare_r2_bucket" "test2" {
+  account_id = var.account_id
+  name       = random_string.bucket2_name.result
 }
 
 module "r2-api-token" {
   source       = "../.."
   account_id   = var.account_id
-  buckets      = [cloudflare_r2_bucket.test.name]
+  buckets      = [cloudflare_r2_bucket.test1.name, cloudflare_r2_bucket.test2.name]
   bucket_write = false
   expires_on = timeadd(timestamp(), "10m")
 }
