@@ -19,7 +19,7 @@ resource "cloudflare_api_token" "token" {
     ])
     resources = { for bucket in var.buckets : "com.cloudflare.edge.r2.bucket.${var.account_id}_default_${bucket}" => "*" }
   }
-  not_before = var.not_before != "" ? var.not_before : timestamp()
+  not_before = var.not_before != "" ? var.not_before : null
   expires_on = var.expires_on != "" ? var.expires_on : null
   condition {
     request_ip {
