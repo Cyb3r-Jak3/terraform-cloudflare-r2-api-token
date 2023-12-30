@@ -52,6 +52,7 @@ jobs:
 
       - name: Terraform Destroy
         run: terraform destroy -auto-approve -input=false
+        if: always()
         env:
             CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
             TF_VAR_account_id: ${{ secrets.TF_VAR_ACCOUNT_ID }}
