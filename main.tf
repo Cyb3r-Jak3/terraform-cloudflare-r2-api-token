@@ -11,11 +11,12 @@ terraform {
 data "cloudflare_api_token_permission_groups" "this" {}
 
 locals {
-  resources = var.allow_all_buckets ? {"com.cloudflare.edge.r2.bucket.${var.account_id}*" = "*"} : { for bucket in var.buckets : "com.cloudflare.edge.r2.bucket.${var.account_id}_default_${bucket}" => "*" }
+  resources          = var.allow_all_buckets ? { "com.cloudflare.edge.r2.bucket.${var.account_id}*" = "*" } : { for bucket in var.buckets : "com.cloudflare.edge.r2.bucket.${var.account_id}_default_${bucket}" => "*" }
+  token_bucket_names = var.allow_all_buckets ? ["Allow-All-Buckets"] : join(",", var.buckets)
 }
 
 resource "cloudflare_api_token" "token" {
-  name = var.token_name != "" ? var.token_name : "R2-${join(",", var.buckets)}-${var.bucket_read ? "Read" : ""}-${var.bucket_write ? "Write" : ""}"
+  name = var.token_name != "" ? var.token_name : "R2-${local.token_bucket_names}-${var.bucket_read ? "Read" : ""}-${var.bucket_write ? "Write" : ""}"
   policy {
     permission_groups = compact([
       var.bucket_read ? data.cloudflare_api_token_permission_groups.this.r2["Workers R2 Storage Bucket Item Read"] : null,
