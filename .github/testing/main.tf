@@ -49,3 +49,20 @@ module "r2-api-token" {
   bucket_write = false
   expires_on = timeadd(timestamp(), "10m")
 }
+
+module "r2-api-token_custom_name" {
+  source       = "../.."
+  account_id   = var.account_id
+  token_name = "Github Action R2 Module"
+  buckets      = [cloudflare_r2_bucket.test1.name, cloudflare_r2_bucket.test2.name]
+  bucket_write = false
+  expires_on = timeadd(timestamp(), "10m")
+}
+
+module "r2-api-token_wildcard" {
+  source       = "../.."
+  account_id   = var.account_id
+  allow_all_buckets = true
+  bucket_write = false
+  expires_on = timeadd(timestamp(), "10m")
+}
