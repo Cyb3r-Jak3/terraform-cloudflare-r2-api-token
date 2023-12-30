@@ -3,7 +3,7 @@ terraform {
   required_providers {
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = ">= 4.7.0"
+      version = ">= 4.13.0"
     }
   }
 }
@@ -11,7 +11,7 @@ terraform {
 data "cloudflare_api_token_permission_groups" "this" {}
 
 locals {
-  resources = var.allow_all_buckets ? {"com.cloudflare.edge.r2.bucket.${var.account_id}*" => "*"} : { for bucket in var.buckets : "com.cloudflare.edge.r2.bucket.${var.account_id}_default_${bucket}" => "*" }
+  resources = var.allow_all_buckets ? {"com.cloudflare.edge.r2.bucket.${var.account_id}*" = "*"} : { for bucket in var.buckets : "com.cloudflare.edge.r2.bucket.${var.account_id}_default_${bucket}" => "*" }
 }
 
 resource "cloudflare_api_token" "token" {
