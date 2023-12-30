@@ -49,3 +49,11 @@ module "r2-api-token" {
   bucket_write = false
   expires_on = timeadd(timestamp(), "10m")
 }
+
+module "r2-api-token_wildcard" {
+  source       = "../.."
+  account_id   = var.account_id
+  allow_all_buckets = true
+  bucket_write = false
+  expires_on = timeadd(timestamp(), "10m")
+}

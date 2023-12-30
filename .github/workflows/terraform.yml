@@ -4,7 +4,30 @@ on:
   pull_request:
     branches: [ main ]
 
-jobs: 
+jobs:
+  Linting:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v4
+
+        - uses: actions/setup-go@v4
+          with:
+            go-version: '1.20'
+        
+        - uses: hashicorp/setup-terraform@v2
+        
+        - name: Install Terraform Docs
+          run: |
+              go install github.com/terraform-docs/terraform-docs@0.16.0
+
+        - name: Terraform Docs
+          run: |
+              terraform-docs --output-check .
+        
+        - name: Terraform Format Check
+          run: |
+              terraform fmt -check -recursive
+
   Terraform:
     runs-on: ubuntu-latest
     defaults:
