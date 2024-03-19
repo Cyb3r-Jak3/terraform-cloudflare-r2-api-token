@@ -11,7 +11,7 @@ terraform {
 data "cloudflare_api_token_permission_groups" "this" {}
 
 locals {
-  resources          = length(var.buckets) > 0 ? { "com.cloudflare.edge.r2.bucket.*" = "*" } : { for bucket in var.buckets : "com.cloudflare.edge.r2.bucket.${var.account_id}_default_${bucket}" => "*" }
+  resources          = length(var.buckets) > 0 ? { for bucket in var.buckets : "com.cloudflare.edge.r2.bucket.${var.account_id}_default_${bucket}" => "*" } : { "com.cloudflare.edge.r2.bucket.*" = "*" }
   token_bucket_names = length(var.buckets) > 0 ? "All-Buckets" : join(",", var.buckets)
 }
 
