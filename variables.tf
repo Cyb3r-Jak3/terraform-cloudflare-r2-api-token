@@ -10,16 +10,9 @@ variable "token_name" {
 }
 
 variable "buckets" {
-  description = "List of R2 buckets to grant access to"
+  description = "List of R2 buckets to grant access to. If empty, all buckets will be granted access."
   type        = list(string)
   default     = []
-}
-
-variable "allow_all_buckets" {
-  description = "If true, grant access to all buckets"
-  type        = bool
-  default     = false
-
 }
 
 variable "bucket_read" {
