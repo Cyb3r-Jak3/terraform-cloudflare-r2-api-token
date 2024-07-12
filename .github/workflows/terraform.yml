@@ -19,7 +19,7 @@ jobs:
         
         - name: Install Terraform Docs
           run: |
-              go install github.com/terraform-docs/terraform-docs@v0.17.0
+              go install github.com/terraform-docs/terraform-docs@v0.18.0
 
         - name: Terraform Docs
           run: |
