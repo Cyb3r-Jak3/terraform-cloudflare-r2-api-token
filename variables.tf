@@ -3,6 +3,12 @@ variable "account_id" {
   type        = string
 }
 
+variable "jurisdiction" {
+  description = "Jurisdiction of R2 buckets"
+  type        = string
+  default     = "default"
+}
+
 variable "token_name" {
   description = "Name of the API token.\nIf none given then the fomart is: `R2-<comma separated names>-<Read if 'bucket-read'>-<Write if 'bucket-write'>`"
   type        = string
