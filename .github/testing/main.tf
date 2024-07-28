@@ -65,3 +65,13 @@ module "r2-api-token_wildcard" {
   bucket_write = false
   expires_on = timeadd(timestamp(), "10m")
 }
+
+
+
+module "r2-api-token_eu" {
+  source       = "../.."
+  account_id   = var.account_id
+  bucket_write = false
+  expires_on = timeadd(timestamp(), "10m")
+  jurisdiction = "eu"
+}
