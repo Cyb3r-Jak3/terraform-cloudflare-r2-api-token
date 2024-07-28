@@ -42,6 +42,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_account_id"></a> [account\_id](#input\_account\_id) | Cloudflare Account ID | `string` | n/a | yes |
+| <a name="input_jurisdiction"></a> [jurisdiction](#input\_jurisdiction) | Jurisdiction of R2 buckets | `string` | `default` | no |
 | <a name="input_bucket_read"></a> [bucket\_read](#input\_bucket\_read) | If true, grant read access to the bucket(s) | `bool` | `true` | no |
 | <a name="input_bucket_write"></a> [bucket\_write](#input\_bucket\_write) | If true, grant write access to the bucket(s) | `bool` | `true` | no |
 | <a name="input_buckets"></a> [buckets](#input\_buckets) | List of R2 buckets to grant access to. If empty, all buckets will be granted access. | `list(string)` | `[]` | no |
