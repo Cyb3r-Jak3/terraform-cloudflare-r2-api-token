@@ -18,13 +18,13 @@ module "r2-api-token" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2.0 |
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | >= 4.13.0 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | >= 4.13.0, <5 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | >= 4.13.0 |
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | >= 4.13.0, <5 |
 
 ## Modules
 
@@ -50,13 +50,13 @@ No modules.
 | <a name="input_expires_on"></a> [expires\_on](#input\_expires\_on) | The expiration time on or after which the token MUST NOT be accepted for processing. If not specified, the token will not expire. | `string` | `""` | no |
 | <a name="input_jurisdiction"></a> [jurisdiction](#input\_jurisdiction) | Jurisdiction of R2 buckets | `string` | `"default"` | no |
 | <a name="input_not_before"></a> [not\_before](#input\_not\_before) | The time before which the token MUST NOT be accepted for processing. If not specified, the token will be valid immediately. | `string` | `""` | no |
-| <a name="input_token_name"></a> [token\_name](#input\_token\_name) | Name of the API token.<br>If none given then the fomart is: `R2-<comma separated names>-<Read if 'bucket-read'>-<Write if 'bucket-write'>` | `string` | `""` | no |
+| <a name="input_token_name"></a> [token\_name](#input\_token\_name) | Name of the API token.<br/>If none given then the fomart is: `R2-<comma separated names>-<Read if 'bucket-read'>-<Write if 'bucket-write'>` | `string` | `""` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_id"></a> [id](#output\_id) | API Token ID.<br>Used as the Access Key ID |
+| <a name="output_id"></a> [id](#output\_id) | API Token ID.<br/>Used as the Access Key ID |
 | <a name="output_name"></a> [name](#output\_name) | Name of the API Token |
 | <a name="output_secret"></a> [secret](#output\_secret) | Secret Access Key |
 | <a name="output_value"></a> [value](#output\_value) | API Token Value |
