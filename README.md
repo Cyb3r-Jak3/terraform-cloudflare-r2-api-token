@@ -18,13 +18,13 @@ module "r2-api-token" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2.0 |
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | >= 4.13.0, <5 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | >= 5, <6 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | >= 4.13.0, <5 |
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | >= 5, <6 |
 
 ## Modules
 
@@ -35,7 +35,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [cloudflare_api_token.token](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/api_token) | resource |
-| [cloudflare_api_token_permission_groups.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/api_token_permission_groups) | data source |
+| [cloudflare_account_api_token_permission_groups.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/account_api_token_permission_groups) | data source |
 
 ## Inputs
 
