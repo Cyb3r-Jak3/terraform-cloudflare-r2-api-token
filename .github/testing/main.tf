@@ -2,11 +2,11 @@ terraform {
   required_providers {
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = ">= 4.7.0"
+      version = ">= 5, <6"
     }
     random = {
       source  = "hashicorp/random"
-      version = "3.5.1"
+      version = "3.7.1"
     }
   }
 }
@@ -65,8 +65,6 @@ module "r2-api-token_wildcard" {
   bucket_write = false
   expires_on = timeadd(timestamp(), "10m")
 }
-
-
 
 module "r2-api-token_eu" {
   source       = "../.."
