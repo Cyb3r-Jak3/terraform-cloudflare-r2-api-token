@@ -15,8 +15,7 @@ jobs:
 
         - name: Terraform Docs
           run: |
-              docker run --rm --volume "$(pwd):/terraform-docs" -u $(id -u) quay.io/terraform-docs/terraform-docs:0.18.0 --output-check /terraform-docs
-
+              docker run --rm --volume "$(pwd):/terraform-docs" -u $(id -u) quay.io/terraform-docs/terraform-docs:0.19.0 --output-check /terraform-docs
         
         - name: Terraform Format Check
           run: |
