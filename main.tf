@@ -8,7 +8,9 @@ terraform {
   }
 }
 
-data "cloudflare_account_api_token_permission_groups" "this" {}
+data "cloudflare_account_api_token_permission_groups" "this" {
+  account_id = var.account_id
+}
 
 locals {
   resources          = length(var.buckets) > 0 ? { for bucket in var.buckets : "com.cloudflare.edge.r2.bucket.${var.account_id}_${var.jurisdiction}_${bucket}" => "*" } : { "com.cloudflare.edge.r2.bucket.*" = "*" }
