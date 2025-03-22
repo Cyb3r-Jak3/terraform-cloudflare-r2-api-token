@@ -2,11 +2,11 @@ terraform {
   required_providers {
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = ">= 4.7.0"
+      version = ">= 5, <6"
     }
     random = {
       source  = "hashicorp/random"
-      version = "3.5.1"
+      version = "3.7.1"
     }
   }
 }
@@ -42,11 +42,19 @@ resource "cloudflare_r2_bucket" "test2" {
   name       = random_string.bucket2_name.result
 }
 
-module "r2-api-token" {
+module "r2-api-token-read" {
   source       = "../.."
   account_id   = var.account_id
   buckets      = [cloudflare_r2_bucket.test1.name, cloudflare_r2_bucket.test2.name]
   bucket_write = false
+  expires_on = timeadd(timestamp(), "10m")
+}
+
+module "r2-api-token-write" {
+  source       = "../.."
+  account_id   = var.account_id
+  buckets      = [cloudflare_r2_bucket.test2.name]
+  bucket_write = true
   expires_on = timeadd(timestamp(), "10m")
 }
 
@@ -65,8 +73,6 @@ module "r2-api-token_wildcard" {
   bucket_write = false
   expires_on = timeadd(timestamp(), "10m")
 }
-
-
 
 module "r2-api-token_eu" {
   source       = "../.."

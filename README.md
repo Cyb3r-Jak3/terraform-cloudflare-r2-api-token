@@ -12,19 +12,26 @@ module "r2-api-token" {
   write = false
 }
 ```
+
+### Cloudflare provider version support
+
+5.0 and above uses version 5.0 of the Cloudflare provider.  
+4.1.1 and below uses version 4 of the Cloudflare provider.
+
+I will continue to support the 4.1.1 version to the best of my ability, but I will not be adding new features to it. I will only add new features to the 5.0 version of the provider.
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2.0 |
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | >= 4.13.0, <5 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | >= 5, <6 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | >= 4.13.0, <5 |
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | >= 5, <6 |
 
 ## Modules
 
@@ -35,7 +42,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [cloudflare_api_token.token](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/api_token) | resource |
-| [cloudflare_api_token_permission_groups.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/api_token_permission_groups) | data source |
+| [cloudflare_api_token_permission_groups_list.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/api_token_permission_groups_list) | data source |
 
 ## Inputs
 
