@@ -35,7 +35,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [cloudflare_api_token.token](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/api_token) | resource |
-| [cloudflare_account_api_token_permission_groups.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/account_api_token_permission_groups) | data source |
+| [cloudflare_api_token_permission_groups_list.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/api_token_permission_groups_list) | data source |
 
 ## Inputs
 
