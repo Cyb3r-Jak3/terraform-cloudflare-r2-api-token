@@ -12,6 +12,13 @@ module "r2-api-token" {
   write = false
 }
 ```
+
+### Cloudflare provider version support
+
+5.0 and above uses version 5.0 of the Cloudflare provider.  
+4.1.1 and below uses version 4 of the Cloudflare provider.
+
+I will continue to support the 4.1.1 version to the best of my ability, but I will not be adding new features to it. I will only add new features to the 5.0 version of the provider.
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
