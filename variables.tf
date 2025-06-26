@@ -56,3 +56,13 @@ variable "condition_ip_not_in" {
   type        = list(string)
   default     = []
 }
+
+variable "status" {
+  description = "Status of the API token. Can be 'active' or 'disabled'. Defaults to 'active'."
+  type        = string
+  default     = "active"
+  validation {
+    condition     = contains(["active", "disabled"], var.status)
+    error_message = "Status must be either 'active' or 'disabled'."
+  }
+}
