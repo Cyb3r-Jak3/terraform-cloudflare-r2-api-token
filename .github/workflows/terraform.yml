@@ -9,17 +9,17 @@ jobs:
   Linting:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-        - uses: hashicorp/setup-terraform@v3
+      - uses: hashicorp/setup-terraform@v3
 
-        - name: Terraform Docs
-          run: |
-              docker run --rm --volume "$(pwd):/terraform-docs" -u $(id -u) quay.io/terraform-docs/terraform-docs:0.19.0 --output-check /terraform-docs
-        
-        - name: Terraform Format Check
-          run: |
-              terraform fmt -check -recursive
+      - name: Terraform Docs
+        run: |
+            docker run --rm --volume "$(pwd):/terraform-docs" -u $(id -u) quay.io/terraform-docs/terraform-docs:0.20.0 --output-check /terraform-docs
+      
+      - name: Terraform Format Check
+        run: |
+            terraform fmt -check -recursive
 
   Terraform:
     runs-on: ubuntu-latest

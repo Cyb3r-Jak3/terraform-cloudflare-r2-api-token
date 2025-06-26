@@ -36,4 +36,5 @@ resource "cloudflare_api_token" "token" {
       not_in = var.condition_ip_not_in
     }
   }
+  status = var.status
 }
