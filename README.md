@@ -1,8 +1,10 @@
 # Terraform Cloudflare R2 API Token
 
 Terraform module to create a Cloudflare API token that have bucket scope permissions.
+The API token needed by the Cloudflare provider needs to have `User -> API Tokens -> Edit token` permissions. You can use [this quick link](https://dash.cloudflare.com/profile/api-tokens?permissionGroupKeys=%5B%7B%22key%22%3A%22api_tokens%22%2C%22type%22%3A%22edit%22%7D%5D&name=R2+API+Token+Module&accountId=*&zoneId=all) to create the token with the correct permissions.
 
 Example:
+
 ```hcl
 module "r2-api-token" {
   source  = "Cyb3r-Jak3/r2-api-token/cloudflare"
@@ -58,7 +60,7 @@ No modules.
 | <a name="input_jurisdiction"></a> [jurisdiction](#input\_jurisdiction) | Jurisdiction of R2 buckets | `string` | `"default"` | no |
 | <a name="input_not_before"></a> [not\_before](#input\_not\_before) | The time before which the token MUST NOT be accepted for processing. If not specified, the token will be valid immediately. | `string` | `""` | no |
 | <a name="input_status"></a> [status](#input\_status) | Status of the API token. Can be 'active' or 'disabled'. Defaults to 'active'. | `string` | `"active"` | no |
-| <a name="input_token_name"></a> [token\_name](#input\_token\_name) | Name of the API token.<br/>If none given then the fomart is: `R2-<comma separated names>-<Read if 'bucket-read'>-<Write if 'bucket-write'>` | `string` | `""` | no |
+| <a name="input_token_name"></a> [token\_name](#input\_token\_name) | Name of the API token.<br/>If none given then the format is: `R2-<comma separated names>-<Read if 'bucket-read'>-<Write if 'bucket-write'>` | `string` | `""` | no |
 
 ## Outputs
 

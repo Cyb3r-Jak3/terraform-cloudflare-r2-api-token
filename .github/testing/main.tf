@@ -81,3 +81,11 @@ module "r2-api-token_eu" {
   expires_on = timeadd(timestamp(), "10m")
   jurisdiction = "eu"
 }
+
+module "r2-api-token_disabled" {
+  source       = "../.."
+  account_id   = var.account_id
+  bucket_write = false
+  status = "disabled"
+  expires_on = timeadd(timestamp(), "10m")
+}

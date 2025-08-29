@@ -10,8 +10,10 @@ output:
     # Terraform Cloudflare R2 API Token
 
     Terraform module to create a Cloudflare API token that have bucket scope permissions.
+    The API token needed by the Cloudflare provider needs to have `User -> API Tokens -> Edit token` permissions. You can use [this quick link](https://dash.cloudflare.com/profile/api-tokens?permissionGroupKeys=%5B%7B%22key%22%3A%22api_tokens%22%2C%22type%22%3A%22edit%22%7D%5D&name=R2+API+Token+Module&accountId=*&zoneId=all) to create the token with the correct permissions.
 
     Example:
+    
     ```hcl
     module "r2-api-token" {
       source  = "Cyb3r-Jak3/r2-api-token/cloudflare"

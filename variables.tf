@@ -10,7 +10,7 @@ variable "jurisdiction" {
 }
 
 variable "token_name" {
-  description = "Name of the API token.\nIf none given then the fomart is: `R2-<comma separated names>-<Read if 'bucket-read'>-<Write if 'bucket-write'>`"
+  description = "Name of the API token.\nIf none given then the format is: `R2-<comma separated names>-<Read if 'bucket-read'>-<Write if 'bucket-write'>`"
   type        = string
   default     = ""
 }
