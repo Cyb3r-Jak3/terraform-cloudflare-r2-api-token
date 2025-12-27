@@ -3,7 +3,7 @@ terraform {
   required_providers {
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = ">= 5, <6"
+      version = ">= 5.13, <6"
     }
   }
 }
@@ -12,7 +12,7 @@ data "cloudflare_api_token_permission_groups_list" "this" {
 }
 
 locals {
-  resources          = length(var.buckets) > 0 ? { for bucket in var.buckets : "com.cloudflare.edge.r2.bucket.${var.account_id}_${var.jurisdiction}_${bucket}" => "*" } : { "com.cloudflare.edge.r2.bucket.*" = "*" }
+  resources          = jsonencode(length(var.buckets) > 0 ? { for bucket in var.buckets : "com.cloudflare.edge.r2.bucket.${var.account_id}_${var.jurisdiction}_${bucket}" => "*" } : { "com.cloudflare.edge.r2.bucket.*" = "*" })
   token_bucket_names = length(var.buckets) > 0 ? join(",", var.buckets) : "All-Buckets"
   r2_api_permissions = { for x in data.cloudflare_api_token_permission_groups_list.this.result : x.name => x.id if contains(["Workers R2 Storage Bucket Item Read", "Workers R2 Storage Bucket Item Write"], x.name) }
   permission_id_list = compact([
