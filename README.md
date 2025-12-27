@@ -17,6 +17,7 @@ module "r2-api-token" {
 
 ### Cloudflare provider version support
 
+6.0 and above uses version 5.13 or above of the Cloudflare provider.
 5.0 and above uses version 5.0 of the Cloudflare provider.  
 4.1.1 and below uses version 4 of the Cloudflare provider.
 
@@ -27,13 +28,13 @@ I will continue to support the 4.1.1 version to the best of my ability, but I wi
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2.0 |
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | >= 5, <6 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | >= 5.13, <6 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | >= 5, <6 |
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | >= 5.13, <6 |
 
 ## Modules
 
